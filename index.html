@@ -24,7 +24,10 @@
 
 <body>
 
-<h1 id="counter">0</h1>
+<h1 id="events">0</h1>
+<h1 id="outreach">0</h1>
+<h1 id="participants">0</h1>
+<h1 id="volunteers">0</h1>
 
 <button id="incrementBtn">
     Increase Counter
@@ -57,25 +60,36 @@ const app = initializeApp(firebaseConfig);
 
 const db = getDatabase(app);
 
-const counterRef = ref(db, "events");
+const eventsRef = ref(db, "events");
+const outreachRef = ref(db, "outreach");
+const participantsRef = ref(db, "participants");
+const volunteersRef = ref(db, "volunteers");
 
 const counterElement =
-    document.getElementById("counter");
+    document.getElementById("events");
+const counterElement =
+    document.getElementById("outreach");
+const counterElement =
+    document.getElementById("participants");
+const counterElement =
+    document.getElementById("volunteers");
 
-const button =
-    document.getElementById("incrementBtn");
+    
 
-onValue(counterRef, (snapshot) => {
-    counterElement.innerText = snapshot.val();
-});
+// const button =
+//     document.getElementById("incrementBtn");
 
-button.addEventListener("click", () => {
+// onValue(counterRef, (snapshot) => {
+//     counterElement.innerText = snapshot.val();
+// });
 
-    runTransaction(counterRef, (currentValue) => {
-        return (currentValue || 0) + 1;
-    });
+// button.addEventListener("click", () => {
 
-});
+//     runTransaction(counterRef, (currentValue) => {
+//         return (currentValue || 0) + 1;
+//     });
+
+// });
 
 </script>
 
