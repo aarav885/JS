@@ -69,7 +69,7 @@ const eventsElement =
     document.getElementById("events");
 const outreachElement =
     document.getElementById("outreach");
-const participantslement =
+const participantsElement =
     document.getElementById("participants");
 const volunteersElement =
     document.getElementById("volunteers");
@@ -79,9 +79,21 @@ const volunteersElement =
 // const button =
 //     document.getElementById("incrementBtn");
 
-// onValue(counterRef, (snapshot) => {
-//     counterElement.innerText = snapshot.val();
-// });
+onValue(eventsRef, (snapshot) => {
+    eventsElement.innerText = snapshot.val();
+});
+
+onValue(outreachRef, (snapshot) => {
+    outreachElement.innerText = snapshot.val();
+});
+
+onValue(participantsRef, (snapshot) => {
+    participantsElement.innerText = snapshot.val();
+});
+
+onValue(volunteersRef, (snapshot) => {
+    volunteersElement.innerText = snapshot.val();
+});
 
 // button.addEventListener("click", () => {
 
