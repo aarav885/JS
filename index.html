@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Counter</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #counter {
+            font-size: 4rem;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1 id="counter">0</h1>
+
+<button id="incrementBtn">
+    Increase Counter
+</button>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+    getDatabase,
+    ref,
+    onValue,
+    runTransaction
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBGwrqSDznrB1xnZOTn9_YwV5zit9HHSlE",
+  authDomain: "js-counter-196a8.firebaseapp.com",
+  databaseURL: "https://js-counter-196a8-default-rtdb.firebaseio.com",
+  projectId: "js-counter-196a8",
+  storageBucket: "js-counter-196a8.firebasestorage.app",
+  messagingSenderId: "852835245215",
+  appId: "1:852835245215:web:aaa12138081ac9ba6116aa"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getDatabase(app);
+
+const counterRef = ref(db, "events");
+
+const counterElement =
+    document.getElementById("counter");
+
+const button =
+    document.getElementById("incrementBtn");
+
+onValue(counterRef, (snapshot) => {
+    counterElement.innerText = snapshot.val();
+});
+
+button.addEventListener("click", () => {
+
+    runTransaction(counterRef, (currentValue) => {
+        return (currentValue || 0) + 1;
+    });
+
+});
+
+</script>
+
+</body>
+</html>
