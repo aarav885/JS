@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
     <title>Live Counter</title>
 
     <style>
@@ -22,12 +26,14 @@ body {
 .card {
     width: 220px;
     padding: 25px;
-    border-radius: 20px;
-    color: white;
+    border-radius: 24px;
+
+    background: white;
+
     text-align: center;
 
     box-shadow:
-        0 8px 20px rgba(0,0,0,0.15);
+        0 4px 12px rgba(0,0,0,0.08);
 
     transition:
         transform 0.2s ease,
@@ -52,38 +58,41 @@ body {
     font-size: 4rem;
 }
 
+.card i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+.events-card i {
+    color: #FF6B6B;
+}
+
+.outreach-card i {
+    color: #4D96FF;
+}
+
+.participants-card i {
+    color: #43AA8B;
+}
+
+.volunteers-card i {
+    color: #9B5DE5;
+}
 /* Individual Colors */
 
-.events-card {
-    background: linear-gradient(
-        135deg,
-        #FBFCF8,
-        #ff8e53
-    );
+.events-card h1 {
+    color: #FF6B6B;
 }
 
-.outreach-card {
-    background: linear-gradient(
-        135deg,
-        #4facfe,
-        #00f2fe
-    );
+.outreach-card h1 {
+    color: #4D96FF;
 }
 
-.participants-card {
-    background: linear-gradient(
-        135deg,
-        #43e97b,
-        #38f9d7
-    );
+.participants-card h1 {
+    color: #43AA8B;
 }
 
-.volunteers-card {
-    background: linear-gradient(
-        135deg,
-        #a18cd1,
-        #fbc2eb
-    );
+.volunteers-card h1 {
+    color: #9B5DE5;
 }
 
 </style>
@@ -94,21 +103,25 @@ body {
 <div class="container">
 
     <div class="card events-card">
+        <i class="fa-solid fa-calendar"></i>
         <h2>Events & Workshops Hosted</h2>
         <h1 id="events">0</h1>
     </div>
 
     <div class="card outreach-card">
+        <i class="fa-solid fa-handshake"></i>
         <h2>Community Outreach Activities</h2>
         <h1 id="outreach">0</h1>
     </div>
 
     <div class="card participants-card">
+        <i class="fa-solid fa-graduation-cap"></i>
         <h2>Student Participants Reached</h2>
         <h1 id="participants">0</h1>
     </div>
 
     <div class="card volunteers-card">
+        <i class="fa-solid fa-hand-holding-heart"></i>
         <h2>Youth Volunteers Involved</h2>
         <h1 id="volunteers">0</h1>
     </div>
